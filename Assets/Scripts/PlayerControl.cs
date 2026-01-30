@@ -1,0 +1,81 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public struct PlayerState { public bool isMoving; public bool isJumping;}
+
+// Converted to 2D
+[RequireComponent(typeof(Rigidbody2D))]
+public class PlayerControl : MonoBehaviour
+{
+    InputSystem_Actions inputActions;
+    Rigidbody2D rb;
+
+    [Header("Movement")]
+    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float jumpForce = 5f;
+
+    [Header("Ground Check")]
+    [SerializeField] float groundCheckDistance = 0.6f;
+    [SerializeField] LayerMask groundLayer = ~0; // default: everything
+
+    float moveX;
+    bool isGrounded;
+    PlayerState playerState;
+
+    void Awake()
+    {
+        inputActions = new InputSystem_Actions();
+        rb = GetComponent<Rigidbody2D>();
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        playerState = new PlayerState { isMoving = false, isJumping = false };
+    }
+
+    void OnEnable()
+    {
+        inputActions.Player.Enable();
+        inputActions.Player.Move.performed += OnMove;
+        inputActions.Player.Move.canceled += OnMove;
+        inputActions.Player.Jump.performed += OnJump;
+    }
+
+    void OnDisable()
+    {
+        inputActions.Player.Move.performed -= OnMove;
+        inputActions.Player.Move.canceled -= OnMove;
+        inputActions.Player.Jump.performed -= OnJump;
+        inputActions.Player.Disable();
+    }
+
+    void Update()
+    {
+        // 2D ground check via raycast
+        Vector2 origin = (Vector2)transform.position + Vector2.up * 0.1f;
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, groundCheckDistance, groundLayer);
+        isGrounded = hit.collider != null;
+        if (isGrounded) playerState.isJumping = false;
+    }
+
+    void FixedUpdate()
+    {
+        // Horizontal movement (left/right only)
+        rb.linearVelocity = new Vector2(moveX * moveSpeed, rb.linearVelocity.y);
+        playerState.isMoving = Mathf.Abs(moveX) > 0.01f;
+    }
+
+    void OnMove(InputAction.CallbackContext ctx)
+    {
+        Vector2 movementInput = ctx.ReadValue<Vector2>();
+        moveX = movementInput.x;
+        if (ctx.canceled) moveX = 0f;
+    }
+
+    void OnJump(InputAction.CallbackContext ctx)
+    {
+        if (!ctx.performed) return;
+        if (isGrounded)
+        {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            playerState.isJumping = true;
+        }
+    }
+}
