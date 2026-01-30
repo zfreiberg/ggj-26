@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[System.Serializable]
 public struct PlayerState { public bool isMoving; public bool isJumping;}
 
 // Converted to 2D
@@ -16,13 +17,13 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float jumpForce = 5f;
 
     [Header("Ground Check")]
-    [SerializeField] float groundCheckDistance = 0.6f;
+    [SerializeField] float groundCheckDistance = 1f;
     [SerializeField] LayerMask groundLayer = ~0; // default: everything
 
     float moveX;
     float velXSmooth; // SmoothDamp ref
     bool isGrounded;
-    PlayerState playerState;
+    [SerializeField] PlayerState playerState;
 
     void Awake()
     {
