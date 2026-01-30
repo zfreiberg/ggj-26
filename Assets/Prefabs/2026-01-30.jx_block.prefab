@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6480469028867526832}
   - component: {fileID: 8273131891679039343}
   - component: {fileID: 8949024126081698145}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 2026-01-30.jx_block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
