@@ -12,6 +12,7 @@ public class PlayerControl : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float moveSmoothTime = 0.06f; // smaller = snappier
     [SerializeField] float jumpForce = 5f;
 
     [Header("Ground Check")]
@@ -19,6 +20,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] LayerMask groundLayer = ~0; // default: everything
 
     float moveX;
+    float velXSmooth; // SmoothDamp ref
     bool isGrounded;
     PlayerState playerState;
 
@@ -27,6 +29,7 @@ public class PlayerControl : MonoBehaviour
         inputActions = new InputSystem_Actions();
         rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate; // render-time interpolation
         playerState = new PlayerState { isMoving = false, isJumping = false };
     }
 
@@ -57,8 +60,11 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Horizontal movement (left/right only)
-        rb.linearVelocity = new Vector2(moveX * moveSpeed, rb.linearVelocity.y);
+        // Smooth horizontal movement
+        float targetX = moveX * moveSpeed;
+        float newX = Mathf.SmoothDamp(rb.linearVelocity.x, targetX, ref velXSmooth, moveSmoothTime);
+        rb.linearVelocity = new Vector2(newX, rb.linearVelocity.y);
+
         playerState.isMoving = Mathf.Abs(moveX) > 0.01f;
     }
 
@@ -72,8 +78,11 @@ public class PlayerControl : MonoBehaviour
     void OnJump(InputAction.CallbackContext ctx)
     {
         if (!ctx.performed) return;
-        if (isGrounded)
+        // Only jump when on ground and not already in a jump
+        if (isGrounded && !playerState.isJumping)
         {
+            // Zero vertical velocity so the impulse is consistent
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             playerState.isJumping = true;
         }
