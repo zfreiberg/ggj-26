@@ -1,16 +1,23 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class MaskControl : MonoBehaviour
 {
     public GameObject maskAffectLayer;
     public Button maskOnButton;
 
+    void Awake()
+    {
+    }
+
     void Start()
     {
         maskOnButton.onClick.AddListener(ToggleMaskLayer);
         maskAffectLayer.SetActive(false);
+
+        GameControl.AllMaskButtons.Add(maskOnButton);
     }
 
     void ToggleMaskLayer()

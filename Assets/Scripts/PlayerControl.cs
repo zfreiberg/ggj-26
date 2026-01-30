@@ -8,6 +8,8 @@ public struct PlayerState { public bool isMoving; public bool isJumping;}
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerControl : MonoBehaviour
 {
+    public static PlayerControl Inst { get; private set; }
+
     InputSystem_Actions inputActions;
     Rigidbody2D rb;
 
@@ -27,6 +29,7 @@ public class PlayerControl : MonoBehaviour
 
     void Awake()
     {
+        Inst = this;
         inputActions = new InputSystem_Actions();
         rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -87,5 +90,12 @@ public class PlayerControl : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             playerState.isJumping = true;
         }
+    }
+
+    public void OnEnemyTouch()
+    {
+        // destroy player unit
+        Destroy(gameObject);
+        GameControl.Inst.OnGameOver();
     }
 }

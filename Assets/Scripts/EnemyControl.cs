@@ -98,4 +98,13 @@ public class EnemyControl : MonoBehaviour
         float newX = Mathf.SmoothDamp(rb.linearVelocity.x, targetX, ref velXSmooth, moveSmoothTime);
         rb.linearVelocity = new Vector2(newX, rb.linearVelocity.y);
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            // damage player
+            PlayerControl.Inst.OnEnemyTouch();
+        }
+    }
 }
