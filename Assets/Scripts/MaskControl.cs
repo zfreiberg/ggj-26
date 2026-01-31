@@ -20,11 +20,19 @@ public class MaskControlItems
 
 public class MaskControl : MonoBehaviour
 {
+    public static MaskControl Inst { get; private set; }
+    public float RedMaskEnemySpeedModifer = 2f;
+
     public static bool hasGreenMask = false;
     public static bool hasRedMask = false;
     public static bool hasBlueMask = false;
 
     public List<MaskControlItems> maskControlItems;
+
+    void Awake()
+    {
+        Inst = this;
+    }
 
     void Start()
     {
@@ -34,6 +42,11 @@ public class MaskControl : MonoBehaviour
             item.maskAffectLayer.SetActive(false);
             GameControl.AllMaskButtons.Add(item.maskOnButton);
         }
+    }
+
+    public float GetEnemySpeedModifier()
+    {
+        return hasRedMask ? RedMaskEnemySpeedModifer : 1f;
     }
 
     void ToggleMaskLayer(MaskControlItems item)

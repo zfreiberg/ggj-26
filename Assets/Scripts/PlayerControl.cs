@@ -17,6 +17,11 @@ public class PlayerControl : MonoBehaviour
     InputSystem_Actions inputActions;
     Rigidbody2D rb;
 
+    [SerializeField] float boundMinX = -500f;
+    [SerializeField] float boundMaxX = 500f;
+    [SerializeField] float boundMinY = -500f;
+    [SerializeField] float boundMaxY = 500f;
+
     [Header("Movement")]
     [SerializeField] float maxSpeed = 50f;
     [SerializeField] float moveForce = 5f;
@@ -24,6 +29,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float moveSmoothTime = 0.06f; // smaller = snappier
     [SerializeField] float jumpForce = 5f;
     [SerializeField] float jumpForceDouble = 10f;
+    [SerializeField] float dashForce = 20f;
 
     [Header("Ground Check")]
     [SerializeField] float groundCheckDistance = 1f;
@@ -36,11 +42,13 @@ public class PlayerControl : MonoBehaviour
 
     [SerializeField] float dashDuration = 0.15f;
     bool isDashing;
+    float originalGravityScale;
 
     float moveX;
     float velXSmooth; // SmoothDamp ref
     bool isGrounded;
     [SerializeField] PlayerState playerState;
+    bool isLastDirectionLeft = false;
 
     void Awake()
     {
@@ -54,6 +62,7 @@ public class PlayerControl : MonoBehaviour
         if (!animator) animator = GetComponentInChildren<Animator>(true);
         if (!spriteRenderer) spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
         PlayerLastPosition = transform.position;
+        originalGravityScale = rb.gravityScale;
     }
 
     void OnEnable()
@@ -80,8 +89,10 @@ public class PlayerControl : MonoBehaviour
         isGrounded = hit.collider != null;
 
         var velocity = rb.linearVelocity;
-        if (isGrounded && playerState.isJumping && velocity.y <= 0f) 
+        if (isGrounded && playerState.isJumping && velocity.y <= 0f) {
             playerState.isJumping = false;
+            isDashing = false;
+        }
 
         if (animator)
         {
@@ -92,6 +103,14 @@ public class PlayerControl : MonoBehaviour
         }
         if (flipSprite && spriteRenderer && Mathf.Abs(moveX) > 0.01f)
             spriteRenderer.flipX = moveX < 0f;
+
+        // is player current position is too big or small, reset the game
+        if (transform.position.y < boundMinY || transform.position.y > boundMaxY ||
+            transform.position.x < boundMinX || transform.position.x > boundMaxX)
+        {
+            OnEnemyTouch();
+        }
+
     }
 
     void FixedUpdate()
@@ -105,7 +124,7 @@ public class PlayerControl : MonoBehaviour
         playerState.isMoving = Mathf.Abs(moveX) > 0.01f;
         
         var velocity = rb.linearVelocity;
-        if (Mathf.Abs(velocity.x) > maxSpeed)
+        if (Mathf.Abs(velocity.x) > maxSpeed && !isDashing)
         {
             velocity = new Vector2(Mathf.Sign(velocity.x) * maxSpeed, velocity.y);
             rb.linearVelocity = velocity;
@@ -119,6 +138,8 @@ public class PlayerControl : MonoBehaviour
         Vector2 movementInput = ctx.ReadValue<Vector2>();
         moveX = movementInput.x;
         if (ctx.canceled) moveX = 0f;
+        if (moveX != 0f)
+            isLastDirectionLeft = moveX < 0f;
     }
 
     void OnJump(InputAction.CallbackContext ctx)
@@ -133,6 +154,19 @@ public class PlayerControl : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             playerState.isJumping = true;
         }
+        if (MaskControl.hasRedMask && !isGrounded && !isDashing)
+        {
+            // Double jump
+            rb.linearVelocity = new Vector2(0, 0);
+            var dashForce = this.dashForce;
+            var dir = new Vector2(moveX, 0f).normalized;
+            // if moveX is zero, dash at velocity direction
+            if (dir.magnitude < 0.1f)
+                dir = isLastDirectionLeft ? Vector2.left : Vector2.right;
+            rb.AddForce(dir * dashForce, ForceMode2D.Impulse);
+            
+            StartCoroutine(DashRoutine());
+        }
     }
 
     public void OnEnemyTouch()
@@ -142,20 +176,17 @@ public class PlayerControl : MonoBehaviour
         GameControl.Inst.OnGameOver();
     }
 
-    void OnDash(InputAction.CallbackContext ctx)
-    {
-        if (!ctx.performed || isDashing) return;
-        StartCoroutine(DashRoutine());
-    }
-
     IEnumerator DashRoutine()
     {
         isDashing = true;
         animator.SetBool("IsDashing", true);
+        // set player physics material gravity to 0
+        rb.gravityScale = 0f;
 
         yield return new WaitForSeconds(dashDuration);
 
         isDashing = false;
         animator.SetBool("IsDashing", false);
+        rb.gravityScale = originalGravityScale;
     }
 }

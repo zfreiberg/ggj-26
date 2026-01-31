@@ -94,7 +94,7 @@ public class EnemyAIPatrol : MonoBehaviour
     {
         if (!enemyState.isMoving) return;
         // Smooth horizontal movement
-        float targetX = moveDirX * moveSpeed;
+        float targetX = moveDirX * moveSpeed * MaskControl.Inst.GetEnemySpeedModifier();
         float newX = Mathf.SmoothDamp(rb.linearVelocity.x, targetX, ref velXSmooth, moveSmoothTime);
         rb.linearVelocity = new Vector2(newX, rb.linearVelocity.y);
     }
