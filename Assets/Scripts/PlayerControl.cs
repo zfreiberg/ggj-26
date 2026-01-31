@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+
 
 [System.Serializable]
 public struct PlayerState { public bool isMoving; public bool isJumping; }
@@ -28,6 +30,9 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] bool flipSprite = true;
+
+    [SerializeField] float dashDuration = 0.15f;
+    bool isDashing;
 
     float moveX;
     float velXSmooth; // SmoothDamp ref
@@ -120,5 +125,22 @@ public class PlayerControl : MonoBehaviour
         // destroy player unit
         Destroy(gameObject);
         GameControl.Inst.OnGameOver();
+    }
+
+    void OnDash(InputAction.CallbackContext ctx)
+    {
+        if (!ctx.performed || isDashing) return;
+        StartCoroutine(DashRoutine());
+    }
+
+    IEnumerator DashRoutine()
+    {
+        isDashing = true;
+        animator.SetBool("IsDashing", true);
+
+        yield return new WaitForSeconds(dashDuration);
+
+        isDashing = false;
+        animator.SetBool("IsDashing", false);
     }
 }
