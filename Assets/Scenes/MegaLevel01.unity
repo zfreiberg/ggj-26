@@ -599,6 +599,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 45740736}
     m_Modifications:
     - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
+      propertyPath: bgToTurnOn
+      value: 
+      objectReference: {fileID: 599112978}
+    - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
+      propertyPath: bgToTurnOff
+      value: 
+      objectReference: {fileID: 13105408}
+    - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
       propertyPath: teleportPoint
       value: 
       objectReference: {fileID: 2141607080}
@@ -3402,6 +3410,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 45740736}
     m_Modifications:
+    - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
+      propertyPath: bgToTurnOn
+      value: 
+      objectReference: {fileID: 850766186}
+    - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
+      propertyPath: bgToTurnOff
+      value: 
+      objectReference: {fileID: 13105408}
     - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
       propertyPath: teleportPoint
       value: 
@@ -54830,6 +54846,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 45740736}
     m_Modifications:
     - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
+      propertyPath: bgToTurnOn
+      value: 
+      objectReference: {fileID: 1386105713}
+    - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
+      propertyPath: bgToTurnOff
+      value: 
+      objectReference: {fileID: 13105408}
+    - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
       propertyPath: teleportPoint
       value: 
       objectReference: {fileID: 253310162}
@@ -55580,6 +55604,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 45740736}
     m_Modifications:
+    - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
+      propertyPath: bgToTurnOn
+      value: 
+      objectReference: {fileID: 536833595}
+    - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
+      propertyPath: bgToTurnOff
+      value: 
+      objectReference: {fileID: 13105408}
     - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
       propertyPath: teleportPoint
       value: 
@@ -57363,6 +57395,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 45740736}
     m_Modifications:
     - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
+      propertyPath: bgToTurnOn
+      value: 
+      objectReference: {fileID: 13105408}
+    - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
+      propertyPath: bgToTurnOff
+      value: 
+      objectReference: {fileID: 1386105713}
+    - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
       propertyPath: teleportPoint
       value: 
       objectReference: {fileID: 1711401931}
@@ -58551,6 +58591,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 45740736}
     m_Modifications:
     - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
+      propertyPath: bgToTurnOn
+      value: 
+      objectReference: {fileID: 13105408}
+    - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
+      propertyPath: bgToTurnOff
+      value: 
+      objectReference: {fileID: 850766186}
+    - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
       propertyPath: teleportPoint
       value: 
       objectReference: {fileID: 1711401931}
@@ -58662,15 +58710,12 @@ MonoBehaviour:
   maskControlItems:
   - maskType: 1
     maskAffectLayer: {fileID: 1633471905}
-    maskBGLayer: {fileID: 599112978}
     maskOnButton: {fileID: 1779714605}
   - maskType: 0
     maskAffectLayer: {fileID: 354780440}
-    maskBGLayer: {fileID: 850766186}
     maskOnButton: {fileID: 80724282}
   - maskType: 2
     maskAffectLayer: {fileID: 373371093}
-    maskBGLayer: {fileID: 1386105713}
     maskOnButton: {fileID: 2116749616}
 --- !u!1001 &1829330832
 PrefabInstance:
@@ -58742,6 +58787,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 45740736}
     m_Modifications:
+    - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
+      propertyPath: bgToTurnOn
+      value: 
+      objectReference: {fileID: 13105408}
+    - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
+      propertyPath: bgToTurnOff
+      value: 
+      objectReference: {fileID: 599112978}
     - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
       propertyPath: teleportPoint
       value: 

@@ -15,7 +15,6 @@ public class MaskControlItems
 {
     public MaskType maskType;
     public GameObject maskAffectLayer;
-    public GameObject maskBGLayer;
     public Button maskOnButton;
 }
 
@@ -33,7 +32,6 @@ public class MaskControl : MonoBehaviour
         {
             item.maskOnButton.onClick.AddListener(() => ToggleMaskLayer(item));
             item.maskAffectLayer.SetActive(false);
-            item.maskBGLayer.SetActive(false);
             GameControl.AllMaskButtons.Add(item.maskOnButton);
         }
     }
@@ -57,7 +55,6 @@ public class MaskControl : MonoBehaviour
                 break;
         }
         item.maskAffectLayer.SetActive(isCurrentMaskActive);
-        item.maskBGLayer.SetActive(isCurrentMaskActive);
         UpdateButton(item, isCurrentMaskActive);
         ApplyMaskEffect(item, isCurrentMaskActive);
     }
