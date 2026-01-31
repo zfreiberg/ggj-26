@@ -19,6 +19,7 @@ public class PlayerControl : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] float moveForce = 5f;
+    [SerializeField] float moveForceAir = 1f;
     [SerializeField] float moveSmoothTime = 0.06f; // smaller = snappier
     [SerializeField] float jumpForce = 5f;
     [SerializeField] float jumpForceDouble = 10f;
@@ -94,10 +95,11 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (playerState.isJumping)
-            return;
-            
-        rb.AddForce(new Vector2(moveX * moveForce, 0f), ForceMode2D.Force);
+        // if (playerState.isJumping)
+        //     return;
+        
+        var force = isGrounded ? moveForce : moveForceAir;
+        rb.AddForce(new Vector2(moveX * force, 0f), ForceMode2D.Force);
 
         playerState.isMoving = Mathf.Abs(moveX) > 0.01f;
 
