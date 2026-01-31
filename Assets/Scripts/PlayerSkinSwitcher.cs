@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerSkinSwitcher : MonoBehaviour
 {
+    public static PlayerSkinSwitcher Inst { get; private set; }
     [SerializeField] private Animator targetAnimator;
     [SerializeField] private RuntimeAnimatorController[] skins = new RuntimeAnimatorController[8];
 
@@ -10,6 +11,7 @@ public class PlayerSkinSwitcher : MonoBehaviour
 
     void Awake()
     {
+        Inst = this;
         if (!targetAnimator)
             targetAnimator = GetComponentInChildren<Animator>(true);
     }

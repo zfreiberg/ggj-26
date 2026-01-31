@@ -75,5 +75,21 @@ public class MaskControl : MonoBehaviour
         {
             enemy.BecomeLarger(hasGreenMask);
         }
+        if (!hasBlueMask && !hasRedMask && !hasGreenMask)
+            PlayerSkinSwitcher.Inst.SetSkin(0);
+        else if (hasRedMask && !hasGreenMask && !hasBlueMask)
+            PlayerSkinSwitcher.Inst.SetSkin(1);
+        else if (!hasRedMask && hasGreenMask && !hasBlueMask)
+            PlayerSkinSwitcher.Inst.SetSkin(2);
+        else if (!hasRedMask && !hasGreenMask && hasBlueMask)
+            PlayerSkinSwitcher.Inst.SetSkin(3);
+        else if (hasRedMask && !hasGreenMask && hasBlueMask)
+            PlayerSkinSwitcher.Inst.SetSkin(4);
+        else if (!hasRedMask && hasGreenMask && hasBlueMask)
+            PlayerSkinSwitcher.Inst.SetSkin(5);
+        else if (hasRedMask && hasGreenMask && !hasBlueMask)
+            PlayerSkinSwitcher.Inst.SetSkin(6);
+        else if (hasRedMask && hasGreenMask && hasBlueMask)
+            PlayerSkinSwitcher.Inst.SetSkin(7);
     }
 }
