@@ -82,6 +82,10 @@ public class EnemyAIFlying : MonoBehaviour
         if (!enemyState.isMoving) return;
         // Smooth horizontal movement
         Vector2 targetPos = enemyState.position;
+
+        // if target is so far away, just ignore movement
+        if (Vector2.Distance(transform.position, targetPos) > 10f) return;
+        
         Vector2 moveDir = targetPos - (Vector2)transform.position;
         Vector2 target = moveDir * moveSpeed;
         Vector2 newVelocity = Vector2.SmoothDamp(rb.linearVelocity, target, ref velSmooth, moveSmoothTime);
