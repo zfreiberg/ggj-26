@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Goomba_Big
+  m_Controller: {fileID: 9100000, guid: bcd376dd3c63e1542a08390043d7ec63, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4d100d4b00ecb8945a8d05e707c25ab8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 04206e463e1804f408dd10694c8f89d2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 992def1bf2286814bb7b3e4dfc975005, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ed291e2cba65f204fb2b066ef0b01d80, type: 2}

@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 3899ed622927df74e87c80a2d1a36d85
+guid: 8549cafbcdc156c45b964859039e09ca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6310133878501587486
-    second: sGombaBigDie_strip5_0
+      213: 2293771612733906953
+    second: sGombaDie_strip5_0
   - first:
-      213: -2911829783019262266
-    second: sGombaBigDie_strip5_1
+      213: -416186052797609451
+    second: sGombaDie_strip5_1
   - first:
-      213: -2808845579702141352
-    second: sGombaBigDie_strip5_2
+      213: 4296328610615036055
+    second: sGombaDie_strip5_2
   - first:
-      213: 6637679610647111672
-    second: sGombaBigDie_strip5_3
-  - first:
-      213: 6366848911057179171
-    second: sGombaBigDie_strip5_4
+      213: -8808404198492844535
+    second: sGombaDie_strip5_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -87,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -125,111 +122,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sGombaBigDie_strip5_0
+      name: sGombaDie_strip5_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e1abe397459129750800000000000000
-      internalID: 6310133878501587486
+      spriteID: 05b204c39613bb64bacf8f2da59b9a03
+      internalID: -1724683284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sGombaBigDie_strip5_1
+      name: sGombaDie_strip5_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e999e2fdd079b1547825e895ea61df5b
+      internalID: 1591159878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sGombaDie_strip5_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6ceebb86d3a1797d0800000000000000
-      internalID: -2911829783019262266
+      spriteID: 0d4d9f61573488642ab308d0d493cecb
+      internalID: 1172514666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sGombaBigDie_strip5_2
+      name: sGombaDie_strip5_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 012b450351df6c446ab4bf086113041e
+      internalID: 1561103981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sGombaDie_strip5_4
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 85e7de0c3d9f409d0800000000000000
-      internalID: -2808845579702141352
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sGombaBigDie_strip5_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8f7697d1076cd1c50800000000000000
-      internalID: 6637679610647111672
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sGombaBigDie_strip5_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 32255220a579b5850800000000000000
-      internalID: 6366848911057179171
+      spriteID: 550b646e0cae1f442baee8671636b0f1
+      internalID: -498581310
       vertices: []
       indices: 
       edges: []
@@ -238,7 +235,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6f960ec63ee935741803d2eba622189f
+    spriteID: 0597efe63d003b842aa2a0f8ade5e8e1
     internalID: 0
     vertices: []
     indices: 
@@ -248,13 +245,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      sGombaBigDie_strip5_0: 6310133878501587486
-      sGombaBigDie_strip5_1: -2911829783019262266
-      sGombaBigDie_strip5_2: -2808845579702141352
-      sGombaBigDie_strip5_3: 6637679610647111672
-      sGombaBigDie_strip5_4: 6366848911057179171
+      sGombaDie_strip5_0: -1724683284
+      sGombaDie_strip5_1: 1591159878
+      sGombaDie_strip5_2: 1172514666
+      sGombaDie_strip5_3: 1561103981
+      sGombaDie_strip5_4: -498581310
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

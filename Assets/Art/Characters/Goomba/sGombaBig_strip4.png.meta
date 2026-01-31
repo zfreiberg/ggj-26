@@ -105,6 +105,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -112,19 +125,19 @@ TextureImporter:
       name: sGombaBig_strip4_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: db533e7058b224990800000000000000
+      spriteID: 79d1784cc62b6474d9aa4e1a5b949f8b
       internalID: -7403306987080698435
       vertices: []
       indices: 
@@ -134,19 +147,19 @@ TextureImporter:
       name: sGombaBig_strip4_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 32
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8c165839a5fe7b6f0800000000000000
+      spriteID: 36556aa9adbcf5f4f9e06a07fa668866
       internalID: -668802847340142136
       vertices: []
       indices: 
@@ -156,19 +169,19 @@ TextureImporter:
       name: sGombaBig_strip4_2
       rect:
         serializedVersion: 2
-        x: 65
+        x: 64
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: dc4939eb48f82c070800000000000000
+      spriteID: 9d70b465823fac543be265dab2ae8bf8
       internalID: 8125214478025594061
       vertices: []
       indices: 
@@ -178,19 +191,19 @@ TextureImporter:
       name: sGombaBig_strip4_3
       rect:
         serializedVersion: 2
-        x: 97
+        x: 96
         y: 0
-        width: 31
+        width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0defe9e49f0c78f60800000000000000
+      spriteID: d9a9516828f947141b33c8de29e23601
       internalID: 8036604237064371920
       vertices: []
       indices: 
@@ -200,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 962db48a08dd70149aa7fa796586d26c
     internalID: 0
     vertices: []
     indices: 
@@ -208,7 +221,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       sGombaBig_strip4_0: -7403306987080698435
       sGombaBig_strip4_1: -668802847340142136
