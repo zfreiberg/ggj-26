@@ -1001,6 +1001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MaskControl
   maskAffectLayer: {fileID: 2069523310}
   maskOnButton: {fileID: 1942024921}
+  maskType: 1
 --- !u!1001 &651270710
 PrefabInstance:
   m_ObjectHideFlags: 0

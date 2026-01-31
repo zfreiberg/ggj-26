@@ -10,6 +10,11 @@ public class ColorModeControl : MonoBehaviour
         GameControl.AllColorSwappingItems.Add(this);
     }
 
+    public void OnDestroy()
+    {
+        GameControl.AllColorSwappingItems.Remove(this);
+    }
+
     public void SetColorBlindType(bool isR, bool isG, bool isB)
     {
         // get material from this gameobject's renderer 2D

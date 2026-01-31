@@ -18,6 +18,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float moveSmoothTime = 0.06f; // smaller = snappier
     [SerializeField] float jumpForce = 5f;
+    [SerializeField] float jumpForceDouble = 5f;
 
     [Header("Ground Check")]
     [SerializeField] float groundCheckDistance = 1f;
@@ -108,6 +109,7 @@ public class PlayerControl : MonoBehaviour
         {
             // Zero vertical velocity so the impulse is consistent
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+            var jumpForce = MaskControl.hasGreenMask ? this.jumpForceDouble : this.jumpForce;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             playerState.isJumping = true;
         }
