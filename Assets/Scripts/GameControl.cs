@@ -20,6 +20,14 @@ public class GameControl : MonoBehaviour
     {
         InitUI();
     }
+
+    public static GameObject CreateBullet(GameObject bulletPrefab, Vector3 pos, Vector2 dir, float spd)
+    {
+        GameObject bullet = Instantiate(bulletPrefab);
+        EnemyBulletControl ebc = bullet.GetComponent<EnemyBulletControl>();
+        ebc.Setup(pos, dir, spd);
+        return bullet;
+    }
     
     public void ReloadCurrentScene()
     {
