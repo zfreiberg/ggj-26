@@ -2,12 +2,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [System.Serializable]
-public struct PlayerState { public bool isMoving; public bool isJumping;}
+public struct PlayerState { public bool isMoving; public bool isJumping; }
 
 // Converted to 2D
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerControl : MonoBehaviour
 {
+    public static Vector2 PlayerLastPosition;
     public static PlayerControl Inst { get; private set; }
 
     InputSystem_Actions inputActions;
@@ -35,6 +36,7 @@ public class PlayerControl : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate; // render-time interpolation
         playerState = new PlayerState { isMoving = false, isJumping = false };
+        PlayerLastPosition = transform.position;
     }
 
     void OnEnable()
@@ -70,6 +72,7 @@ public class PlayerControl : MonoBehaviour
         rb.linearVelocity = new Vector2(newX, rb.linearVelocity.y);
 
         playerState.isMoving = Mathf.Abs(moveX) > 0.01f;
+        PlayerLastPosition = transform.position;
     }
 
     void OnMove(InputAction.CallbackContext ctx)

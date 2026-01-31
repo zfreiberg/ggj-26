@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 4229391493273119062}
   - component: {fileID: 3975010794818676410}
   - component: {fileID: 644996137865792347}
+  - component: {fileID: 8398927389937927575}
   m_Layer: 8
   m_Name: 2026-01-31.enemy_static
   m_TagString: Untagged
@@ -272,3 +273,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915936025baedf048a090cba349bd23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyControl
+--- !u!114 &8398927389937927575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5319287513184509782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72462934150a6ea4e9f2e5fe1697e817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  moveSpeed: 2
+  moveSmoothTime: 0.06
+  restTime: 2
+  startRestTime: 1
+  enemyState:
+    isMoving: 0
+    position: {x: 0, y: 0}
+    rest: 0
+    lastPosition: {x: 0, y: 0}

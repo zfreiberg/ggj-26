@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public struct EnemyState { public bool isMoving; public bool isAtTheEdge; public bool isAtTheWall; public float rest; }
+public struct EnemyAIPatrolData { public bool isMoving; public bool isAtTheEdge; public bool isAtTheWall; public float rest; }
 
 public class EnemyAIPatrol : MonoBehaviour
 {
@@ -26,13 +26,13 @@ public class EnemyAIPatrol : MonoBehaviour
     float moveDirX;
     float velXSmooth; // SmoothDamp ref
     
-    [SerializeField] EnemyState enemyState;
+    [SerializeField] EnemyAIPatrolData enemyState;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate; // render-time interpolation
-        enemyState = new EnemyState { isMoving = false, isAtTheEdge = false, isAtTheWall = false, rest = 0f };
+        enemyState = new EnemyAIPatrolData { isMoving = false, isAtTheEdge = false, isAtTheWall = false, rest = 0f };
 
         // set a start rest time
         if (startRestTime > 0f){
