@@ -18,6 +18,7 @@ public class PlayerControl : MonoBehaviour
     Rigidbody2D rb;
 
     [Header("Movement")]
+    [SerializeField] float maxSpeed = 50f;
     [SerializeField] float moveForce = 5f;
     [SerializeField] float moveForceAir = 1f;
     [SerializeField] float moveSmoothTime = 0.06f; // smaller = snappier
@@ -102,6 +103,13 @@ public class PlayerControl : MonoBehaviour
         rb.AddForce(new Vector2(moveX * force, 0f), ForceMode2D.Force);
 
         playerState.isMoving = Mathf.Abs(moveX) > 0.01f;
+        
+        var velocity = rb.linearVelocity;
+        if (Mathf.Abs(velocity.x) > maxSpeed)
+        {
+            velocity = new Vector2(Mathf.Sign(velocity.x) * maxSpeed, velocity.y);
+            rb.linearVelocity = velocity;
+        }
 
         PlayerLastPosition = transform.position;
     }
