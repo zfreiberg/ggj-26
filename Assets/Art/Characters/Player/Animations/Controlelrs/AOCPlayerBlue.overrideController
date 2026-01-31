@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AOCPlayerBlue
+  m_Controller: {fileID: 9100000, guid: 2f26e12a06b5a5c48b684edfc9de87df, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 93c0b9342f0ca9f4ba7c28a22ed1c3a5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2486f575f79f92247aca07e994b5fed1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 84e4df2dce7530343b7c564614c4b44e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6cbd8f92ab1393042bb1cb658b29d694, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8efd2da2c0e0ef241b7520d9bc48eb93, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3d20fd3b445c8494e9ef3cc7ca26fcf9, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1ceadd5ad300e9a40aa83b8274b6e395, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 38c8ac07f6c8db349ae204f029b4bbb1, type: 2}

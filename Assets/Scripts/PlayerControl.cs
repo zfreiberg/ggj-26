@@ -22,6 +22,11 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float groundCheckDistance = 1f;
     [SerializeField] LayerMask groundLayer = ~0; // default: everything
 
+    [Header("Animation")]
+    [SerializeField] Animator animator;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] bool flipSprite = true;
+
     float moveX;
     float velXSmooth; // SmoothDamp ref
     bool isGrounded;
@@ -35,6 +40,9 @@ public class PlayerControl : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate; // render-time interpolation
         playerState = new PlayerState { isMoving = false, isJumping = false };
+
+        if (!animator) animator = GetComponentInChildren<Animator>(true);
+        if (!spriteRenderer) spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
     }
 
     void OnEnable()
@@ -60,6 +68,16 @@ public class PlayerControl : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, groundCheckDistance, groundLayer);
         isGrounded = hit.collider != null;
         if (isGrounded) playerState.isJumping = false;
+
+        if (animator)
+        {
+            animator.SetBool("Grounded", isGrounded);
+            animator.SetFloat("Speed", Mathf.Abs(moveX));
+            animator.SetBool("Jumping", playerState.isJumping);
+            // animator.SetFloat("YVel", rb.linearVelocity.y);
+        }
+        if (flipSprite && spriteRenderer && Mathf.Abs(moveX) > 0.01f)
+            spriteRenderer.flipX = moveX < 0f;
     }
 
     void FixedUpdate()
