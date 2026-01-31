@@ -43,12 +43,15 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float dashDuration = 0.15f;
     bool isDashing;
     float originalGravityScale;
+    float originalFrictionScale;
 
     float moveX;
     float velXSmooth; // SmoothDamp ref
     bool isGrounded;
     [SerializeField] PlayerState playerState;
     bool isLastDirectionLeft = false;
+
+    bool isSlowingTime = false;
 
     void Awake()
     {
@@ -63,6 +66,7 @@ public class PlayerControl : MonoBehaviour
         if (!spriteRenderer) spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
         PlayerLastPosition = transform.position;
         originalGravityScale = rb.gravityScale;
+        originalFrictionScale = rb.linearDamping;
     }
 
     void OnEnable()
@@ -71,6 +75,8 @@ public class PlayerControl : MonoBehaviour
         inputActions.Player.Move.performed += OnMove;
         inputActions.Player.Move.canceled += OnMove;
         inputActions.Player.Jump.performed += OnJump;
+        inputActions.Player.SlowTime.performed += OnSlowTimeOn;
+        inputActions.Player.SlowTime.canceled += OnSlowTimeOff;
     }
 
     void OnDisable()
@@ -78,6 +84,8 @@ public class PlayerControl : MonoBehaviour
         inputActions.Player.Move.performed -= OnMove;
         inputActions.Player.Move.canceled -= OnMove;
         inputActions.Player.Jump.performed -= OnJump;
+        inputActions.Player.SlowTime.performed -= OnSlowTimeOn;
+        inputActions.Player.SlowTime.canceled -= OnSlowTimeOff;
         inputActions.Player.Disable();
     }
 
@@ -133,6 +141,16 @@ public class PlayerControl : MonoBehaviour
         PlayerLastPosition = transform.position;
     }
 
+    void OnSlowTimeOn(InputAction.CallbackContext ctx)
+    {
+        Time.timeScale = 0.5f;
+    }
+
+    void OnSlowTimeOff(InputAction.CallbackContext ctx)
+    {
+        Time.timeScale = 1f;
+    }
+
     void OnMove(InputAction.CallbackContext ctx)
     {
         Vector2 movementInput = ctx.ReadValue<Vector2>();
@@ -140,6 +158,16 @@ public class PlayerControl : MonoBehaviour
         if (ctx.canceled) moveX = 0f;
         if (moveX != 0f)
             isLastDirectionLeft = moveX < 0f;
+    }
+
+    public void SetPlayerFriction(float newFriction)
+    {
+        rb.linearDamping = newFriction;
+    }
+
+    public void ResetPlayerFriction()
+    {
+        rb.linearDamping = originalFrictionScale;
     }
 
     void OnJump(InputAction.CallbackContext ctx)

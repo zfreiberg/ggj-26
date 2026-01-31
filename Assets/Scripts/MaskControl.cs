@@ -88,6 +88,10 @@ public class MaskControl : MonoBehaviour
         {
             enemy.BecomeLarger(hasGreenMask);
         }
+        if (hasBlueMask)
+            PlayerControl.Inst.SetPlayerFriction(0f);
+        else
+            PlayerControl.Inst.ResetPlayerFriction();
         if (!hasBlueMask && !hasRedMask && !hasGreenMask)
             PlayerSkinSwitcher.Inst.SetSkin(0);
         else if (hasRedMask && !hasGreenMask && !hasBlueMask)

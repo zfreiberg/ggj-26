@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 using System.Collections.Generic;
 
 public class GameControl : MonoBehaviour
@@ -60,5 +61,13 @@ public class GameControl : MonoBehaviour
         // hide all masks buttons`
         foreach( var btn in AllMaskButtons)
             btn.gameObject.SetActive(false);
+
+        StartCoroutine(GameControl.Inst.OnGameOverCo());
+    }
+
+    public IEnumerator OnGameOverCo()
+    {
+        yield return new WaitForSeconds(2f);
+        ReloadCurrentScene();
     }
 }
