@@ -87,7 +87,7 @@ public class EnemyAIFlying : MonoBehaviour
         if (Vector2.Distance(transform.position, targetPos) > 10f) return;
         
         Vector2 moveDir = targetPos - (Vector2)transform.position;
-        Vector2 target = moveDir * moveSpeed;
+        Vector2 target = moveDir * moveSpeed * MaskControl.Inst.GetEnemySpeedModifier();
         Vector2 newVelocity = Vector2.SmoothDamp(rb.linearVelocity, target, ref velSmooth, moveSmoothTime);
         rb.linearVelocity = new Vector2(newVelocity.x, newVelocity.y);
     }
