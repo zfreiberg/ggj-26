@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using System;
 
 
 [System.Serializable]
@@ -17,7 +18,7 @@ public class PlayerControl : MonoBehaviour
     Rigidbody2D rb;
 
     [Header("Movement")]
-    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float moveForce = 5f;
     [SerializeField] float moveSmoothTime = 0.06f; // smaller = snappier
     [SerializeField] float jumpForce = 5f;
     [SerializeField] float jumpForceDouble = 10f;
@@ -75,7 +76,10 @@ public class PlayerControl : MonoBehaviour
         Vector2 origin = (Vector2)transform.position + Vector2.up * 0.1f;
         RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, groundCheckDistance, groundLayer);
         isGrounded = hit.collider != null;
-        if (isGrounded) playerState.isJumping = false;
+
+        var velocity = rb.linearVelocity;
+        if (isGrounded && playerState.isJumping && velocity.y <= 0f) 
+            playerState.isJumping = false;
 
         if (animator)
         {
@@ -90,12 +94,13 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Smooth horizontal movement
-        float targetX = moveX * moveSpeed;
-        float newX = Mathf.SmoothDamp(rb.linearVelocity.x, targetX, ref velXSmooth, moveSmoothTime);
-        rb.linearVelocity = new Vector2(newX, rb.linearVelocity.y);
+        if (playerState.isJumping)
+            return;
+            
+        rb.AddForce(new Vector2(moveX * moveForce, 0f), ForceMode2D.Force);
 
         playerState.isMoving = Mathf.Abs(moveX) > 0.01f;
+
         PlayerLastPosition = transform.position;
     }
 
