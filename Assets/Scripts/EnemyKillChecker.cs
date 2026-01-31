@@ -6,10 +6,10 @@ public class EnemyKillChecker : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            // kill the enemy
-            Destroy(enemyObject);
-        }
+        // if (other.gameObject.CompareTag("Ground"))
+        // {
+        //     // kill the enemy
+        //     Destroy(enemyObject);
+        // }
     }
 }

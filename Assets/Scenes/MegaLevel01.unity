@@ -1547,7 +1547,7 @@ GameObject:
   - component: {fileID: 354780447}
   m_Layer: 3
   m_Name: RedGroundTilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2114,7 +2114,7 @@ GameObject:
   - component: {fileID: 373371100}
   m_Layer: 3
   m_Name: BlueGroundTilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2664,6 +2664,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b40220abda55343b2d616244086e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorModeControl
+--- !u!1001 &451117605
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1915201042450773735, guid: 91233c9e4b3479f4f86bca35a90fe449, type: 3}
+      propertyPath: m_Name
+      value: 2026-02-01.goomba
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934423484366979759, guid: 91233c9e4b3479f4f86bca35a90fe449, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 70.61353
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934423484366979759, guid: 91233c9e4b3479f4f86bca35a90fe449, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 96.53726
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934423484366979759, guid: 91233c9e4b3479f4f86bca35a90fe449, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934423484366979759, guid: 91233c9e4b3479f4f86bca35a90fe449, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934423484366979759, guid: 91233c9e4b3479f4f86bca35a90fe449, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934423484366979759, guid: 91233c9e4b3479f4f86bca35a90fe449, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934423484366979759, guid: 91233c9e4b3479f4f86bca35a90fe449, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934423484366979759, guid: 91233c9e4b3479f4f86bca35a90fe449, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934423484366979759, guid: 91233c9e4b3479f4f86bca35a90fe449, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934423484366979759, guid: 91233c9e4b3479f4f86bca35a90fe449, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 91233c9e4b3479f4f86bca35a90fe449, type: 3}
 --- !u!1 &477958155
 GameObject:
   m_ObjectHideFlags: 0
@@ -3426,7 +3483,7 @@ GameObject:
   - component: {fileID: 616788303}
   m_Layer: 3
   m_Name: GroundTilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55186,7 +55243,6 @@ MonoBehaviour:
   player2D: {fileID: 1675280561}
   followSpeed: 5
   offset: {x: 0, y: 2}
-  followY: 1
 --- !u!114 &1000410834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55400,7 +55456,7 @@ GameObject:
   - component: {fileID: 1374082189}
   m_Layer: 3
   m_Name: SpikesTilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57215,7 +57271,7 @@ GameObject:
   - component: {fileID: 1633471912}
   m_Layer: 3
   m_Name: GreenGroundTilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58958,3 +59014,4 @@ SceneRoots:
   - {fileID: 541622757}
   - {fileID: 913159304}
   - {fileID: 531636477}
+  - {fileID: 451117605}
