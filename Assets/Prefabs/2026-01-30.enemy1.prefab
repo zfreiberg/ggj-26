@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5444760752657910032}
   - component: {fileID: 41496475847701117}
   - component: {fileID: 9038999575174535777}
+  - component: {fileID: 573379484824787117}
   m_Layer: 8
   m_Name: 2026-01-30.enemy1
   m_TagString: Untagged
@@ -63,7 +64,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 15c3598ee19106a49ba238a8ffe223e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -211,6 +212,19 @@ MonoBehaviour:
     isAtTheEdge: 0
     isAtTheWall: 0
     rest: 0
+--- !u!114 &573379484824787117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585234005360233579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b40220abda55343b2d616244086e43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorModeControl
+  colorBlindMaterial: {fileID: 0}
 --- !u!1 &8970845570247315659
 GameObject:
   m_ObjectHideFlags: 0

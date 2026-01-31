@@ -9,16 +9,26 @@ public class GameControl : MonoBehaviour
 
     public Button resetButton;
     public static List<Button> AllMaskButtons { get; private set; }
+    public static List<ColorModeControl> AllColorSwappingItems { get; private set; }
 
     void Awake()
     {
         Inst = this;
         AllMaskButtons = new List<Button>();
+        AllColorSwappingItems = new List<ColorModeControl>();
     }
 
     void Start()
     {
         InitUI();
+    }
+
+    public static void SwapColorBlindMode(bool isR, bool isG, bool isB)
+    {
+        foreach (var item in AllColorSwappingItems)
+        {
+            item.SetColorBlindType(isR, isG, isB);
+        }
     }
 
     public static GameObject CreateBullet(GameObject bulletPrefab, Vector3 pos, Vector2 dir, float spd)
