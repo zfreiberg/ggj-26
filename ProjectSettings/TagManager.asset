@@ -39,11 +39,32 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: FarBackground
+    uniqueID: 2968391267
+    locked: 0
   - name: Background
     uniqueID: 3468303515
     locked: 0
+  - name: Ground
+    uniqueID: 159337145
+    locked: 0
+  - name: Props
+    uniqueID: 2061153421
+    locked: 0
+  - name: Enemies
+    uniqueID: 2795211707
+    locked: 0
+  - name: Player
+    uniqueID: 2046899371
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 1669086621
+    locked: 0
+  - name: UI
+    uniqueID: 2861723615
     locked: 0
   m_RenderingLayers:
   - Default
