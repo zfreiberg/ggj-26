@@ -1308,12 +1308,15 @@ MonoBehaviour:
   maskControlItems:
   - maskType: 1
     maskAffectLayer: {fileID: 2069523310}
+    maskBGLayer: {fileID: 0}
     maskOnButton: {fileID: 1942024921}
   - maskType: 0
     maskAffectLayer: {fileID: 808775}
+    maskBGLayer: {fileID: 0}
     maskOnButton: {fileID: 1340435400}
   - maskType: 2
     maskAffectLayer: {fileID: 1725377086}
+    maskBGLayer: {fileID: 0}
     maskOnButton: {fileID: 554981537}
 --- !u!1001 &651270710
 PrefabInstance:
@@ -3223,6 +3226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f2501af010f3b4bb07d69df051cfed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  CanvasUI: {fileID: 184118729}
   resetButton: {fileID: 1892078511}
 --- !u!4 &1745357804
 Transform:

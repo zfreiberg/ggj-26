@@ -15,6 +15,7 @@ public class MaskControlItems
 {
     public MaskType maskType;
     public GameObject maskAffectLayer;
+    public GameObject maskBGLayer;
     public Button maskOnButton;
 }
 
@@ -32,41 +33,46 @@ public class MaskControl : MonoBehaviour
         {
             item.maskOnButton.onClick.AddListener(() => ToggleMaskLayer(item));
             item.maskAffectLayer.SetActive(false);
+            item.maskBGLayer.SetActive(false);
             GameControl.AllMaskButtons.Add(item.maskOnButton);
         }
     }
 
     void ToggleMaskLayer(MaskControlItems item)
     {
-        item.maskAffectLayer.SetActive(!item.maskAffectLayer.activeSelf);
-        UpdateButton(item);
-        ApplyMaskEffect(item);
+        var isCurrentMaskActive = false;
+        switch (item.maskType)
+        {
+            case MaskType.Red:
+                hasRedMask = !hasRedMask;
+                isCurrentMaskActive = hasRedMask;
+                break;
+            case MaskType.Green:
+                hasGreenMask = !hasGreenMask;
+                isCurrentMaskActive = hasGreenMask;
+                break;
+            case MaskType.Blue:
+                hasBlueMask = !hasBlueMask;
+                isCurrentMaskActive = hasBlueMask;
+                break;
+        }
+        item.maskAffectLayer.SetActive(isCurrentMaskActive);
+        item.maskBGLayer.SetActive(isCurrentMaskActive);
+        UpdateButton(item, isCurrentMaskActive);
+        ApplyMaskEffect(item, isCurrentMaskActive);
     }
 
-    void UpdateButton(MaskControlItems item)
+    void UpdateButton(MaskControlItems item, bool isCurrentMaskActive)
     {
         var buttonText = item.maskOnButton.GetComponentInChildren<TMP_Text>();
-        if (item.maskAffectLayer.activeSelf)
+        if (isCurrentMaskActive)
             buttonText.text = "Mask\nOn";
         else
             buttonText.text = "Mask\nOff";
     }
 
-    void ApplyMaskEffect(MaskControlItems item)
+    void ApplyMaskEffect(MaskControlItems item, bool isCurrentMaskActive)
     {
-        var maskType = item.maskType;
-        switch (maskType)
-        {
-            case MaskType.Red:
-                hasRedMask = item.maskAffectLayer.activeSelf;
-                break;
-            case MaskType.Green:
-                hasGreenMask = item.maskAffectLayer.activeSelf;
-                break;
-            case MaskType.Blue:
-                hasBlueMask = item.maskAffectLayer.activeSelf;
-                break;
-        }
         GameControl.SwapColorBlindMode(hasRedMask, hasGreenMask, hasBlueMask);
         foreach (var enemy in EnemyControl.AllEnemies)
         {

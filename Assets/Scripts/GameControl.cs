@@ -7,6 +7,7 @@ public class GameControl : MonoBehaviour
 {
     public static GameControl Inst { get; private set; }
 
+    public GameObject CanvasUI;
     public Button resetButton;
     public static List<Button> AllMaskButtons { get; private set; }
     public static List<ColorModeControl> AllColorSwappingItems { get; private set; }
@@ -16,6 +17,7 @@ public class GameControl : MonoBehaviour
         Inst = this;
         AllMaskButtons = new List<Button>();
         AllColorSwappingItems = new List<ColorModeControl>();
+        CanvasUI.SetActive(true);
     }
 
     void Start()

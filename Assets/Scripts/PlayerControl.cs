@@ -20,7 +20,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float moveSmoothTime = 0.06f; // smaller = snappier
     [SerializeField] float jumpForce = 5f;
-    [SerializeField] float jumpForceDouble = 5f;
+    [SerializeField] float jumpForceDouble = 10f;
 
     [Header("Ground Check")]
     [SerializeField] float groundCheckDistance = 1f;
