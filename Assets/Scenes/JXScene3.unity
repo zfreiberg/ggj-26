@@ -324,6 +324,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b2806d831fe6584ab1989efe2bec6cb, type: 3}
+--- !u!1 &280043455 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7302750224372927108, guid: 9b2806d831fe6584ab1989efe2bec6cb, type: 3}
+  m_PrefabInstance: {fileID: 280043454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &341707240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,7 +1456,7 @@ PrefabInstance:
     - target: {fileID: 971229463679523648, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
       propertyPath: teleportPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 280043455}
     - target: {fileID: 1675193383836396241, guid: c35e81b24093a77498d176a1f09906a7, type: 3}
       propertyPath: m_Name
       value: 2026-01-31.portal
