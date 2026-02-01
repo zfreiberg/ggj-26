@@ -91,7 +91,7 @@ public class MaskControl : MonoBehaviour
             buttonText.text = "Off";
     }
 
-    void ApplyMaskEffect(MaskControlItems item, bool isCurrentMaskActive)
+    public void ApplyMaskEffect(MaskControlItems item, bool isCurrentMaskActive)
     {
         GameControl.SwapColorBlindMode(hasRedMask, hasGreenMask, hasBlueMask);
         foreach (var enemy in EnemyControl.AllEnemies)
