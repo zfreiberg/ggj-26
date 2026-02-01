@@ -16,10 +16,14 @@ public class GameControl : MonoBehaviour
     public AudioSource maskOnAudioSource;
     public AudioSource pickupMaskAudioSource;
     public AudioSource deathAudioSource;
+    public AudioSource enemyShootingAudioSource;
+    public AudioSource enemyFlyingAudioSource;
+    public AudioSource enemyWalkingAudioSource;
 
     public void PlayAudioMaskOn() => maskOnAudioSource.Play();
     public void PlayAudioPickupMask() => pickupMaskAudioSource.Play();
     public void PlayAudioDeath() => deathAudioSource.Play();
+    public void PlayAudioEnemyShooting() => enemyShootingAudioSource.Play();
 
     void Awake()
     {

@@ -23,5 +23,8 @@ public class EnemyShootBullets : MonoBehaviour
         Vector3 shootPos = transform.position;
         Vector2 shootDir = shootDirection;
         GameControl.CreateBullet(bulletPrefab, shootPos, shootDir, bulletSpeed);
+        // if player is close enough
+        // if (PlayerControl.Inst != null && Vector2.Distance(PlayerControl.Inst.transform.position, transform.position) < 10f)
+        //     GameControl.Inst.PlayAudioEnemyShooting();
     }
 }
