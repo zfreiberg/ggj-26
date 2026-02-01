@@ -13,6 +13,14 @@ public class GameControl : MonoBehaviour
     public static List<Button> AllMaskButtons { get; private set; }
     public static List<ColorModeControl> AllColorSwappingItems { get; private set; }
 
+    public AudioSource maskOnAudioSource;
+    public AudioSource pickupMaskAudioSource;
+    public AudioSource deathAudioSource;
+
+    public void PlayAudioMaskOn() => maskOnAudioSource.Play();
+    public void PlayAudioPickupMask() => pickupMaskAudioSource.Play();
+    public void PlayAudioDeath() => deathAudioSource.Play();
+
     void Awake()
     {
         Inst = this;

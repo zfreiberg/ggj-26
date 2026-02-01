@@ -90,6 +90,8 @@ public class MaskControl : MonoBehaviour
                 isCurrentMaskActive = hasBlueMask;
                 break;
         }
+        if (isCurrentMaskActive)
+            GameControl.Inst.PlayAudioMaskOn();
         item.maskAffectLayer.SetActive(isCurrentMaskActive);
         UpdateButton(item, isCurrentMaskActive);
         ApplyMaskEffect();

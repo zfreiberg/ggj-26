@@ -14,6 +14,9 @@ public class PlayerControl : MonoBehaviour
     public static Vector2 PlayerLastPosition;
     public static PlayerControl Inst { get; private set; }
 
+    public AudioSource jumpAudioSource;
+    public AudioSource dashAudioSource;
+
     InputSystem_Actions inputActions;
     Rigidbody2D rb;
 
@@ -198,6 +201,7 @@ public class PlayerControl : MonoBehaviour
             var jumpForce = MaskControl.hasGreenMask ? this.jumpForceDouble : this.jumpForce;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             playerState.isJumping = true;
+            jumpAudioSource.Play();
         }
         if (MaskControl.hasRedMask && !isGrounded && !isDashing)
         {
@@ -211,6 +215,7 @@ public class PlayerControl : MonoBehaviour
             rb.AddForce(dir * dashForce, ForceMode2D.Impulse);
             
             StartCoroutine(DashRoutine());
+            dashAudioSource.Play();
         }
     }
 

@@ -23,6 +23,7 @@ public class EnemyControl : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             // damage player
+            GameControl.Inst.PlayAudioDeath();
             PlayerControl.Inst.OnEnemyTouch();
         }
     }

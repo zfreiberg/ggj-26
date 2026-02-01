@@ -16,6 +16,7 @@ public class ItemControl : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            GameControl.Inst.PlayAudioPickupMask();
             maskButton.interactable = true;
             Destroy(gameObject); // remove item from scene
         }
