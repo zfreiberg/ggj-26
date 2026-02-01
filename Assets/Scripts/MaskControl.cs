@@ -50,6 +50,7 @@ public class MaskControl : MonoBehaviour
             item.maskOnButton.onClick.AddListener(() => ToggleMaskLayer(item));
             item.maskAffectLayer.SetActive(false);
             GameControl.AllMaskButtons.Add(item.maskOnButton);
+            UpdateButton(item, false);
         }
     }
 
@@ -85,9 +86,9 @@ public class MaskControl : MonoBehaviour
     {
         var buttonText = item.maskOnButton.GetComponentInChildren<TMP_Text>();
         if (isCurrentMaskActive)
-            buttonText.text = "Mask\nOn";
+            buttonText.text = "On";
         else
-            buttonText.text = "Mask\nOff";
+            buttonText.text = "Off";
     }
 
     void ApplyMaskEffect(MaskControlItems item, bool isCurrentMaskActive)

@@ -63,6 +63,7 @@ public class GameControl : MonoBehaviour
             btn.gameObject.SetActive(false);
         // reset time scale
         Time.timeScale = 1f;
+        GameControl.SwapColorBlindMode(false, false, false);
 
         StartCoroutine(GameControl.Inst.OnGameOverCo());
     }
