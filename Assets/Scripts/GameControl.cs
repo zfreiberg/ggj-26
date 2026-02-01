@@ -44,6 +44,17 @@ public class GameControl : MonoBehaviour
     
     public void ReloadCurrentScene()
     {
+        MaskControl.Inst.ApplyMaskEffect(MaskType.Blue, false);
+        MaskControl.Inst.ApplyMaskEffect(MaskType.Red, false);
+        MaskControl.Inst.ApplyMaskEffect(MaskType.Green, false);
+
+        // hide all masks buttons`
+        foreach( var btn in AllMaskButtons)
+            btn.gameObject.SetActive(false);
+        // reset time scale
+        Time.timeScale = 1f;
+        GameControl.SwapColorBlindMode(false, false, false);
+
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }
