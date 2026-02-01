@@ -280,6 +280,10 @@ PrefabInstance:
       value: 2026-02-01.mask_blue
       objectReference: {fileID: 0}
     - target: {fileID: 6586994810837428987, guid: e8e970abfd7715248b7e3cf22d3fb748, type: 3}
+      propertyPath: maskType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586994810837428987, guid: e8e970abfd7715248b7e3cf22d3fb748, type: 3}
       propertyPath: maskButton
       value: 
       objectReference: {fileID: 2116749616}
@@ -1903,6 +1907,10 @@ PrefabInstance:
     - target: {fileID: 5064689388092475031, guid: e8e970abfd7715248b7e3cf22d3fb748, type: 3}
       propertyPath: m_Name
       value: 2026-02-01.mask_blue (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586994810837428987, guid: e8e970abfd7715248b7e3cf22d3fb748, type: 3}
+      propertyPath: maskType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6586994810837428987, guid: e8e970abfd7715248b7e3cf22d3fb748, type: 3}
       propertyPath: maskButton
@@ -4427,6 +4435,10 @@ PrefabInstance:
     - target: {fileID: 5064689388092475031, guid: e8e970abfd7715248b7e3cf22d3fb748, type: 3}
       propertyPath: m_Name
       value: 2026-02-01.mask_green (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586994810837428987, guid: e8e970abfd7715248b7e3cf22d3fb748, type: 3}
+      propertyPath: maskType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6586994810837428987, guid: e8e970abfd7715248b7e3cf22d3fb748, type: 3}
       propertyPath: maskButton
@@ -46610,6 +46622,9 @@ MonoBehaviour:
   enemyShootingAudioSource: {fileID: 1604155553}
   enemyFlyingAudioSource: {fileID: 169460134}
   enemyWalkingAudioSource: {fileID: 1536921027}
+  maskRedButton: {fileID: 80724280}
+  maskGreenButton: {fileID: 1779714603}
+  maskBlueButton: {fileID: 2116749614}
 --- !u!1001 &2014598245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47193,6 +47208,10 @@ PrefabInstance:
     - target: {fileID: 5064689388092475031, guid: e8e970abfd7715248b7e3cf22d3fb748, type: 3}
       propertyPath: m_Name
       value: 2026-02-01.mask_green
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586994810837428987, guid: e8e970abfd7715248b7e3cf22d3fb748, type: 3}
+      propertyPath: maskType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6586994810837428987, guid: e8e970abfd7715248b7e3cf22d3fb748, type: 3}
       propertyPath: maskButton

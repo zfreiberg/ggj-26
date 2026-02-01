@@ -5,6 +5,11 @@ public class ColorModeControl : MonoBehaviour
 {
     private Material colorBlindMaterial; 
 
+    public void OnEnable()
+    {
+        SetColorBlindType(MaskControl.hasRedMask, MaskControl.hasGreenMask, MaskControl.hasBlueMask);
+    }
+
     public void Start()
     {
         GameControl.AllColorSwappingItems.Add(this);

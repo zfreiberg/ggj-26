@@ -4,6 +4,14 @@ using UnityEngine.UI;
 public class ItemControl : MonoBehaviour
 {
     public Button maskButton;
+    public MaskType maskType;
+
+    public static ItemControl Inst { get; private set; }
+
+    void Awake()
+    {
+        Inst = this;
+    }
 
     void Start()
     {
@@ -19,6 +27,9 @@ public class ItemControl : MonoBehaviour
             GameControl.Inst.PlayAudioPickupMask();
             maskButton.interactable = true;
             Destroy(gameObject); // remove item from scene
+
+            PlayerPrefs.SetInt("Has" + maskType.ToString() + "Mask", 1);
+            PlayerPrefs.Save();
         }
     }
 }

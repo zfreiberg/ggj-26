@@ -25,6 +25,10 @@ public class GameControl : MonoBehaviour
     public void PlayAudioDeath() => deathAudioSource.Play();
     public void PlayAudioEnemyShooting() => enemyShootingAudioSource.Play();
 
+    public GameObject maskRedButton;
+    public GameObject maskGreenButton;
+    public GameObject maskBlueButton;
+
     void Awake()
     {
         Inst = this;
@@ -36,6 +40,16 @@ public class GameControl : MonoBehaviour
     void Start()
     {
         InitUI();
+        SetAlreayHavedMasks(MaskType.Red, maskRedButton.GetComponent<Button>());
+        SetAlreayHavedMasks(MaskType.Green, maskGreenButton.GetComponent<Button>());
+        SetAlreayHavedMasks(MaskType.Blue, maskBlueButton.GetComponent<Button>());
+    }
+
+    void SetAlreayHavedMasks( MaskType maskType, Button maskButton )
+    {
+        if (PlayerPrefs.GetInt("Has" + maskType.ToString() + "Mask", 0) == 1){
+            maskButton.interactable = true;
+        }
     }
 
     public static void SwapColorBlindMode(bool isR, bool isG, bool isB)
@@ -69,9 +83,19 @@ public class GameControl : MonoBehaviour
         SceneManager.LoadScene(currentSceneName);
     }
 
+    public void ResetPersistenace(MaskType maskType){
+        PlayerPrefs.SetInt("Has" + maskType.ToString() + "Mask", 0);
+        PlayerPrefs.Save();
+    }
+
     void InitUI()
     {
-        resetButton.onClick.AddListener(ReloadCurrentScene);
+        resetButton.onClick.AddListener(() => {
+            ResetPersistenace(MaskType.Red);
+            ResetPersistenace(MaskType.Green);
+            ResetPersistenace(MaskType.Blue);
+            ReloadCurrentScene();
+        });
         // show all masks buttons as off at start
         foreach( var btn in AllMaskButtons)
             btn.gameObject.SetActive(true);
