@@ -144,7 +144,8 @@ public class PlayerControl : MonoBehaviour
 
     void OnSlowTimeOn(InputAction.CallbackContext ctx)
     {
-        Time.timeScale = 0.5f;
+        if (MaskControl.hasBlueMask)
+            Time.timeScale = 0.5f;
     }
 
     void OnSlowTimeOff(InputAction.CallbackContext ctx)
