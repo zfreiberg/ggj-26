@@ -22,12 +22,18 @@ public class MaskControl : MonoBehaviour
 {
     public static MaskControl Inst { get; private set; }
     public float RedMaskEnemySpeedModifer = 2f;
+    public float BlueMaskPlayerVDamping = 0;
+    public PhysicsMaterial2D playerOriginalPhysicsMaterial;
+    public PhysicsMaterial2D blueMaskPhysicsMaterial;
 
     public static bool hasGreenMask = false;
     public static bool hasRedMask = false;
     public static bool hasBlueMask = false;
 
     public List<MaskControlItems> maskControlItems;
+
+    private float playerOriginalFriction;
+    private float playerOriginalDamping;
 
     void Awake()
     {
@@ -36,6 +42,9 @@ public class MaskControl : MonoBehaviour
 
     void Start()
     {
+        if (playerOriginalPhysicsMaterial != null)
+            playerOriginalFriction = playerOriginalPhysicsMaterial.friction;
+        playerOriginalDamping = PlayerControl.Inst.GetPlayerVerticalDamping();
         foreach (var item in maskControlItems)
         {
             item.maskOnButton.onClick.AddListener(() => ToggleMaskLayer(item));
@@ -89,9 +98,15 @@ public class MaskControl : MonoBehaviour
             enemy.BecomeLarger(hasGreenMask);
         }
         if (hasBlueMask)
-            PlayerControl.Inst.SetPlayerFriction(0f);
+        {
+            PlayerControl.Inst.SetPlayerFriction(BlueMaskPlayerVDamping);
+            PlayerControl.Inst.SetPlayerPhysicsMaterial(blueMaskPhysicsMaterial);
+        }
         else
-            PlayerControl.Inst.ResetPlayerFriction();
+        {
+            PlayerControl.Inst.SetPlayerFriction(playerOriginalDamping);
+            PlayerControl.Inst.SetPlayerPhysicsMaterial(playerOriginalPhysicsMaterial);
+        }
         if (!hasBlueMask && !hasRedMask && !hasGreenMask)
             PlayerSkinSwitcher.Inst.SetSkin(0);
         else if (hasRedMask && !hasGreenMask && !hasBlueMask)

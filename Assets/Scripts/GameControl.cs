@@ -61,6 +61,8 @@ public class GameControl : MonoBehaviour
         // hide all masks buttons`
         foreach( var btn in AllMaskButtons)
             btn.gameObject.SetActive(false);
+        // reset time scale
+        Time.timeScale = 1f;
 
         StartCoroutine(GameControl.Inst.OnGameOverCo());
     }

@@ -61172,6 +61172,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaskControl
   RedMaskEnemySpeedModifer: 2
+  BlueMaskPlayerVDamping: 0
+  playerOriginalPhysicsMaterial: {fileID: 6200000, guid: 443e6c24f2903fe42ba81eb9056e97d6, type: 2}
+  blueMaskPhysicsMaterial: {fileID: 6200000, guid: 10c8767d34c9db243adfcdc7d73c3f63, type: 2}
   maskControlItems:
   - maskType: 1
     maskAffectLayer: {fileID: 1633471905}

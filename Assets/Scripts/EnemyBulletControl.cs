@@ -5,6 +5,9 @@ public class EnemyBulletControl : MonoBehaviour
     [SerializeField] float speed = 8f;
     [SerializeField] Vector2 direction = Vector2.right;
     [SerializeField] float speedDamping = 0f; // per-second damping towards 0
+    [SerializeField] float lifeTime = 10f;
+
+    private float currentTime = 0f;
 
     public void Setup(Vector3 pos, Vector2 dir, float spd)
     {
@@ -20,6 +23,12 @@ public class EnemyBulletControl : MonoBehaviour
 
         // Move the bullet in the specified direction
         transform.Translate(direction.normalized * speed * Time.deltaTime);
+
+        currentTime += Time.deltaTime;
+        if (currentTime >= lifeTime)
+        {
+            Destroy(gameObject);
+        }
     }
 
     

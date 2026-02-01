@@ -45,6 +45,7 @@ public class PlayerControl : MonoBehaviour
     float originalGravityScale;
     float originalFrictionScale;
 
+
     float moveX;
     float velXSmooth; // SmoothDamp ref
     bool isGrounded;
@@ -158,6 +159,21 @@ public class PlayerControl : MonoBehaviour
         if (ctx.canceled) moveX = 0f;
         if (moveX != 0f)
             isLastDirectionLeft = moveX < 0f;
+    }
+
+    public void SetPlayerPhysicsMaterial(PhysicsMaterial2D newMaterial)
+    {
+        // change the material in box collider2d
+        var collider = GetComponent<Collider2D>();
+        if (collider != null)
+        {
+            collider.sharedMaterial = newMaterial;
+        }
+    }
+
+    public float GetPlayerVerticalDamping()
+    {
+        return rb.linearDamping;
     }
 
     public void SetPlayerFriction(float newFriction)
