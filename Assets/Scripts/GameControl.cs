@@ -44,9 +44,7 @@ public class GameControl : MonoBehaviour
     
     public void ReloadCurrentScene()
     {
-        MaskControl.Inst.ApplyMaskEffect(MaskType.Blue, false);
-        MaskControl.Inst.ApplyMaskEffect(MaskType.Red, false);
-        MaskControl.Inst.ApplyMaskEffect(MaskType.Green, false);
+        MaskControl.Inst.TurnOffAllMasks();
 
         // hide all masks buttons`
         foreach( var btn in AllMaskButtons)

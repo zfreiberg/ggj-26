@@ -59,6 +59,19 @@ public class MaskControl : MonoBehaviour
         return hasRedMask ? RedMaskEnemySpeedModifer : 1f;
     }
 
+    public void GetAllMaskControlItems(out List<MaskControlItems> items)
+    {
+        items = maskControlItems;
+    }
+
+    public void TurnOffAllMasks()
+    {
+        foreach (var item in maskControlItems)
+        {
+            TurnOffMaskLayer(item);
+        }
+    }   
+
     void ToggleMaskLayer(MaskControlItems item)
     {
         var isCurrentMaskActive = false;
@@ -79,7 +92,26 @@ public class MaskControl : MonoBehaviour
         }
         item.maskAffectLayer.SetActive(isCurrentMaskActive);
         UpdateButton(item, isCurrentMaskActive);
-        ApplyMaskEffect(item, isCurrentMaskActive);
+        ApplyMaskEffect();
+    }
+
+    void TurnOffMaskLayer(MaskControlItems item)
+    {
+        switch (item.maskType)
+        {
+            case MaskType.Red:
+                hasRedMask = false;
+                break;
+            case MaskType.Green:
+                hasGreenMask = false;
+                break;
+            case MaskType.Blue:
+                hasBlueMask = false;
+                break;
+        }
+        item.maskAffectLayer.SetActive(false);
+        UpdateButton(item, false);
+        ApplyMaskEffect();
     }
 
     void UpdateButton(MaskControlItems item, bool isCurrentMaskActive)
@@ -91,7 +123,7 @@ public class MaskControl : MonoBehaviour
             buttonText.text = "Off";
     }
 
-    public void ApplyMaskEffect(MaskControlItems item, bool isCurrentMaskActive)
+    public void ApplyMaskEffect()
     {
         GameControl.SwapColorBlindMode(hasRedMask, hasGreenMask, hasBlueMask);
         foreach (var enemy in EnemyControl.AllEnemies)
