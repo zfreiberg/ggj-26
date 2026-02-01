@@ -130,17 +130,21 @@ public class MaskControl : MonoBehaviour
         GameControl.SwapColorBlindMode(hasRedMask, hasGreenMask, hasBlueMask);
         foreach (var enemy in EnemyControl.AllEnemies)
         {
-            enemy.BecomeLarger(hasGreenMask);
+            if (enemy != null)
+                enemy.BecomeLarger(hasGreenMask);
         }
-        if (hasBlueMask)
+        if ( PlayerControl.Inst != null)
         {
-            PlayerControl.Inst.SetPlayerFriction(BlueMaskPlayerVDamping);
-            PlayerControl.Inst.SetPlayerPhysicsMaterial(blueMaskPhysicsMaterial);
-        }
-        else
-        {
-            PlayerControl.Inst.SetPlayerFriction(playerOriginalDamping);
-            PlayerControl.Inst.SetPlayerPhysicsMaterial(playerOriginalPhysicsMaterial);
+            if (hasBlueMask)
+            {
+                PlayerControl.Inst.SetPlayerFriction(BlueMaskPlayerVDamping);
+                PlayerControl.Inst.SetPlayerPhysicsMaterial(blueMaskPhysicsMaterial);
+            }
+            else
+            {
+                PlayerControl.Inst.SetPlayerFriction(playerOriginalDamping);
+                PlayerControl.Inst.SetPlayerPhysicsMaterial(playerOriginalPhysicsMaterial);
+            }
         }
         if (!hasBlueMask && !hasRedMask && !hasGreenMask)
             PlayerSkinSwitcher.Inst.SetSkin(0);

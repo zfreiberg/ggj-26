@@ -37,6 +37,7 @@ public class PlayerSkinSwitcher : MonoBehaviour
 
     public void SetSkin(int index)
     {
+        if (targetAnimator == null) return;
         if (index < 0 || index >= skins.Length) return;
         if (skins[index] == null) return;
         if (current == index) return;

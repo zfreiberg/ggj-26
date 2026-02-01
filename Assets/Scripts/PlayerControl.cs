@@ -167,6 +167,7 @@ public class PlayerControl : MonoBehaviour
 
     public void SetPlayerPhysicsMaterial(PhysicsMaterial2D newMaterial)
     {
+        if (rb == null) return;
         // change the material in box collider2d
         var collider = GetComponent<Collider2D>();
         if (collider != null)
@@ -177,16 +178,19 @@ public class PlayerControl : MonoBehaviour
 
     public float GetPlayerVerticalDamping()
     {
+        if (rb == null) return 0f;
         return rb.linearDamping;
     }
 
     public void SetPlayerFriction(float newFriction)
     {
+        if (rb == null) return;
         rb.linearDamping = newFriction;
     }
 
     public void ResetPlayerFriction()
     {
+        if (rb == null) return;
         rb.linearDamping = originalFrictionScale;
     }
 
