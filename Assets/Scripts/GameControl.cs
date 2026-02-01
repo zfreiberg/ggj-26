@@ -6,6 +6,10 @@ using System.Collections.Generic;
 
 public class GameControl : MonoBehaviour
 {
+    public static bool HasGotGreenMask = false;
+    public static bool HasGotRedMask = false;
+    public static bool HasGotBlueMask = false;
+
     public static GameControl Inst { get; private set; }
 
     public GameObject CanvasUI;
@@ -25,9 +29,9 @@ public class GameControl : MonoBehaviour
     public void PlayAudioDeath() => deathAudioSource.Play();
     public void PlayAudioEnemyShooting() => enemyShootingAudioSource.Play();
 
-    public GameObject maskRedButton;
-    public GameObject maskGreenButton;
-    public GameObject maskBlueButton;
+    public Button maskRedButton;
+    public Button maskGreenButton;
+    public Button maskBlueButton;
 
     void Awake()
     {
@@ -40,16 +44,12 @@ public class GameControl : MonoBehaviour
     void Start()
     {
         InitUI();
-        SetAlreayHavedMasks(MaskType.Red, maskRedButton.GetComponent<Button>());
-        SetAlreayHavedMasks(MaskType.Green, maskGreenButton.GetComponent<Button>());
-        SetAlreayHavedMasks(MaskType.Blue, maskBlueButton.GetComponent<Button>());
-    }
-
-    void SetAlreayHavedMasks( MaskType maskType, Button maskButton )
-    {
-        if (PlayerPrefs.GetInt("Has" + maskType.ToString() + "Mask", 0) == 1){
-            maskButton.interactable = true;
-        }
+        if (HasGotBlueMask)
+            maskBlueButton.interactable = true;
+        if (HasGotGreenMask)
+            maskGreenButton.interactable = true;
+        if (HasGotRedMask)
+            maskRedButton.interactable = true;
     }
 
     public static void SwapColorBlindMode(bool isR, bool isG, bool isB)
@@ -84,16 +84,25 @@ public class GameControl : MonoBehaviour
     }
 
     public void ResetPersistenace(MaskType maskType){
-        PlayerPrefs.SetInt("Has" + maskType.ToString() + "Mask", 0);
-        PlayerPrefs.Save();
+        switch(maskType){
+            case MaskType.Red:
+                HasGotRedMask = false;
+                break;
+            case MaskType.Green:
+                HasGotGreenMask = false;
+                break;
+            case MaskType.Blue:
+                HasGotBlueMask = false;
+                break;
+        }
     }
 
     void InitUI()
     {
         resetButton.onClick.AddListener(() => {
-            ResetPersistenace(MaskType.Red);
-            ResetPersistenace(MaskType.Green);
-            ResetPersistenace(MaskType.Blue);
+            // ResetPersistenace(MaskType.Red);
+            // ResetPersistenace(MaskType.Green);
+            // ResetPersistenace(MaskType.Blue);
             ReloadCurrentScene();
         });
         // show all masks buttons as off at start

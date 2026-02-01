@@ -28,8 +28,18 @@ public class ItemControl : MonoBehaviour
             maskButton.interactable = true;
             Destroy(gameObject); // remove item from scene
 
-            PlayerPrefs.SetInt("Has" + maskType.ToString() + "Mask", 1);
-            PlayerPrefs.Save();
+            switch (maskType)
+            {
+                case MaskType.Red:
+                    GameControl.HasGotRedMask = true;
+                    break;
+                case MaskType.Green:
+                    GameControl.HasGotGreenMask = true;
+                    break;
+                case MaskType.Blue:
+                    GameControl.HasGotBlueMask = true;
+                    break;
+            }
         }
     }
 }
